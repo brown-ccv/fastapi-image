@@ -25,7 +25,7 @@ jobs:
         run: ruff format --check .
 
       - name: Run linting
-        run: ruff check src/chat_ccv_fastapi
+        run: ruff check src/fastapi_image
 
       - name: Run tests
         run: python -m pytest
