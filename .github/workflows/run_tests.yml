@@ -1,0 +1,31 @@
+name: Python CI
+
+on:
+  pull_request:
+
+jobs:
+  run_tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.11
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.lock
+          pip install -r requirements-dev.lock
+
+      - name: Run formatting
+        run: ruff format --check .
+
+      - name: Run linting
+        run: ruff check src/chat_ccv_fastapi
+
+      - name: Run tests
+        run: python -m pytest
