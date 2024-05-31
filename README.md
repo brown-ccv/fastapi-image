@@ -1,9 +1,8 @@
-# FastAPI endpoints for ChatCCV
+# FastAPI endpoints
 
-This repo hosts FastAPI endpoints for ChatCCV. The Python code will be deployed in a
-container run on Google Cloud Run. Cloud Build is configured so that once a PR is merged
-into `main`, a new build process is triggered and the Cloud Run container is re-deployed
-.
+This repo hosts FastAPI endpoints that can be deployed in a container run on Google
+Cloud Run. Cloud Build is configured so that once a PR is merged into `main`, a new
+build process is triggered and the Cloud Run container is re-deployed.
 
 ## Developing the code locally
 
@@ -13,21 +12,31 @@ written in Rust with high performances. Since `rye` is compatible with PEP 621
 `pyproject.toml`, other packaging management tools such as `hatch` or `pdm` should also
 work. It, however, won't work with `poetry`.
 
-### Step 1: Clone this repo
+### Step 1: Create a repo from this template Clone this repo
 
-Please use the following command to clone this repo to your local development machine:
+First, please create a new repo using this template and use the following command to
+clone this repo to your local development machine:
 
 ```sh
-git clone https://github.com/brown-ccv/chat-ccv-fastapi.git
-cd chat-ccv-fastapi
+git clone https://github.com/{YOUR_ORG_NAME}/{YOUR_REPO_NAME}.git
+cd {YOUR_REPO_NAME}
 ```
 
-### Step 2: Install `rye`
+### Step 2: Inspect project names and path for the package
+
+By default, the name for this project in `pyproject.toml` is `fastapi-image`. If this is
+not the name you prefer, please feel free to change it. Please also remember to change:
+
+* the path of the project
+* the paths in `pyproject.toml`
+* the paths in `Dockerfile`
+* the paths in the github workflow
+* the package path in tests
+
+### Step 3: Install `rye` and dependencies
 
 If you don't already have `rye` installed on your computer, please follow [their
 installation guide](https://rye.astral.sh/) to have it installed.
-
-### Step 3: Install dependencies with `rye`
 
 With `rye`, setting up a development environment is very easy. Just run this command:
 
@@ -49,7 +58,7 @@ rye run dev
 This is equivalent to running
 
 ```sh
-fastapi dev ./src/chat_ccv_fastapi/main.py
+fastapi dev ./src/fastapi_image/main.py
 ```
 
 ### Step 5: Test the code with `pytest`
