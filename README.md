@@ -12,6 +12,11 @@ written in Rust with high performances. Since `rye` is compatible with PEP 621
 `pyproject.toml`, other packaging management tools such as `hatch` or `pdm` should also
 work. It, however, won't work with `poetry`.
 
+We also use `docker` to build the container image that you can test on your local
+machine. If you have not already installed docker, please click
+[here](https://docs.docker.com/engine/install/) to install it. Once you have installed
+docker, make sure that `docker -v` runs successfully on your command line.
+
 ### Step 1: Create a repo from this template Clone this repo
 
 First, please create a new repo using this template and use the following command to
@@ -66,7 +71,7 @@ fastapi dev ./src/fastapi_image/main.py
 Test scripts are located in the `tests` directory. To run tests, use
 
 ```sh
-rye run tests
+rye run test
 ```
 
 **Note**: Simply calling the `pytest` cli or `rye test` will result in errors because
@@ -83,4 +88,4 @@ rye run build
 rye run container
 ```
 
-The container will be available at https://127.0.0.1:8080/
+The container will be available at http://127.0.0.1:8080/
