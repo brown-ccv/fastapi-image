@@ -147,4 +147,5 @@ convention = "numpy"
 
 [tool.mypy]
 ignore_missing_imports = true
+explicit_package_bases = true
 exclude = ["^tests/.*"]
